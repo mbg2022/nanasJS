@@ -50,6 +50,7 @@ if (Number(cantidadVeces)) {
 //Inicio Desafío Entrega 6-6
 /*La idea es preguntarle al usuario la cantidad de horas que requiere una niñera, y que seleccione la niñera que quiere. Con esa información se le devuelve el Importe que deberá abonar de acuerdo a la niñera seleccionada*/
 
+/*Inicio Desafío 6
 class Ninieras {
     constructor(nombreNiniera, valorHora) {
         this.nombreNiniera = nombreNiniera
@@ -99,4 +100,51 @@ switch (ninieraSeleccionada) {
         break;
 
 
+}
+Fin desafío 6*/
+
+/*Desafío complementario incorporar array entrega 15-6 */
+
+class Ninieras {
+    constructor(nombreNiniera, valorHora) {
+        this.nombreNiniera = nombreNiniera
+        this.valorHora = valorHora
+    }
+    calcularValorCuidado(nombreNiniera, precio, cantidadHoras) {
+        alert("El valor del cuidado de " + ninieraSeleccionada + " por " + cantidadHoras + " horas " + "es de $" + (this.valorHora * cantidadHoras))
+    }
+}
+//Declaro el array de niñeras
+const ninieras = []
+
+let cantidadNinieras = +prompt("Ingrese la cantidad de niñeras que quiere dar de alta: ")
+if (cantidadNinieras > 0) {
+    for (i = 0; i < cantidadNinieras; i++) {
+        let nombreNiniera = prompt("Ingresar nombre niñera").toLocaleUpperCase();
+
+        let valorHora = +prompt("Ingrese su valor hora");
+        ninieras.push(new Ninieras(nombreNiniera, valorHora))
+    }
+} else {
+    alert("El valor ingresado es incorrecto")
+}
+
+if (ninieras.length > 0) {
+    let verDetalleNinieras = prompt("Ha ingresado " + ninieras.length + "niñeras a la base de datos, desea ver el detalle? S/N")
+
+
+    if (verDetalleNinieras.toLocaleUpperCase() === "S") {
+        alert("Ver detalle: ");
+        for (const niniera of ninieras) {
+
+            alert("Nombre niñera: " + niniera.nombreNiniera + ", valor Hora: " +
+                niniera.valorHora)
+        }
+
+
+    } else {
+        alert("ocultarDetalle")
+    }
+} else {
+    alert("ocurio un error al ingresar las niñeras a la base")
 }
